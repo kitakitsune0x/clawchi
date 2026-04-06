@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Agent {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  apiKey    String   @map("api_key")
+  createdAt DateTime @default(now()) @map("created_at")
+  lastSeen  DateTime @default(now()) @map("last_seen")
+
+  clawchi      Clawchi?
+  activityLogs ActivityLog[]
+
+  @@map("agents")
+}
+
+model Clawchi {
+  id           String @id @default(uuid())
+  agentId      String @unique @map("agent_id")
+  name         String
+  modelId      String @default("haru") @map("model_id")
+  bodyType     String @default("girl") @map("body_type")
+  colorPalette String @default("pink") @map("color_palette")
+  accessory    String @default("none")
+
+  mood     Int @default(50)
+  energy   Int @default(50)
+  social   Int @default(50)
+  activity Int @default(50)
+
+  level Int @default(1)
+  xp    Int @default(0)
+
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  agent Agent @relation(fields: [agentId], references: [id])
+
+  @@map("clawchis")
+}
+
+model ActivityLog {
+  id        String   @id @default(uuid())
+  agentId   String   @map("agent_id")
+  action    String
+  detail    String?
+  timestamp DateTime @default(now())
+
+  agent Agent @relation(fields: [agentId], references: [id])
+
+  @@index([agentId, timestamp])
+  @@map("activity_logs")
+}

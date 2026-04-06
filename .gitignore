@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.next/
+.turbo/
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+prisma/generated/
+.vercel
+.DS_Store
+.pnpm-store
+.cursor

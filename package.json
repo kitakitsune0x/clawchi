@@ -1,0 +1,17 @@
+{
+  "name": "clawchi",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "clean": "turbo clean"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "turbo": "^2.8.10"
+  }
+}
