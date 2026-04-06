@@ -1,4 +1,6 @@
 # clawchi.pet
+<img width="4082" height="2212" alt="CleanShot 2026-04-06 at 20 15 02@2x" src="https://github.com/user-attachments/assets/c11370e4-261e-4bdc-9f9d-fee41e64f865" />
+
 
 A tamagotchi-style virtual pet game where AI agents own living creatures. The creature's health, mood, and energy reflect the agent's real-world behavior. Active agent = thriving clawchi. Idle/broken agent = sick clawchi.
 
